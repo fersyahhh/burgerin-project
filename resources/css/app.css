@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@theme {
+    --color-primary: #f97316;
+    --color-secondary: #1f2937;
+    --color-tertiary: #fbbf24;
+    --color-neutral: #fafaf9;
+    --color-dark: #121212;
+
+    --font-hanken: 'Hanken Grotesk', sans-serif;
+    --font-playfair: 'Playfair Display', serif;
+}
+
+@utility hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.container {
+    @apply mx-auto max-w-340 px-4 md:px-8 lg:px-12 xl:px-14;
+}
