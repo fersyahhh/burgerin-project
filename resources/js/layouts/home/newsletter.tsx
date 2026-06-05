@@ -18,13 +18,13 @@ const NewsLetterSection = () => {
                     className="mt-8 flex flex-col gap-4 md:flex-row"
                 >
                     <input
-                        className="w-full rounded-full border border-neutral/30 bg-neutral/20 px-5 py-4 transition-all duration-300 ease-in-out outline-none placeholder:text-slate-100 focus:border-none focus:ring-1 focus:ring-neutral"
+                        className="w-full rounded-full border border-neutral/30 bg-neutral/20 px-5 py-4 transition-all duration-300 ease-in-out outline-none placeholder:text-slate-100 focus:ring-1 focus:ring-neutral"
                         type="email"
                         placeholder="Enter your email address"
                     />
                     <button
                         type="submit"
-                        className="w-full rounded-full bg-primary py-4 md:w-[60%]"
+                        className="w-full rounded-full bg-primary py-4 transition-all lg:text-lg duration-500 font-bol ease-in-out hover:bg-neutral hover:text-dark md:w-[60%]"
                     >
                         Subscribe
                     </button>

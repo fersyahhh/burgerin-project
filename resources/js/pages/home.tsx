@@ -17,12 +17,16 @@ const Home = () => {
         <div className="relative min-h-screen w-full overflow-x-hidden bg-white">
             <Head title="Burgerin | Laper? Burgerin Aja Yuk" />
             <div className="flex h-10 w-full items-center justify-center bg-primary">
-                <p className="font-hanken text-xs font-bold">
+                <p className="font-hanken text-xs md:text-sm lg:text-base font-bold">
                     Gratis Ongkir khusus pemesanan di atas Rp 100rb!
                 </p>
             </div>
-            <div className="container relative">
-                <div className='fixed top-8 right-0 left-0 z-998 px-4 md:px-8 lg:px-12 '>
+            <div
+                onClick={closeMenu}
+                className={`${isOpen == true ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'} absolute inset-0 z-998 w-full bg-black/50 transition-all duration-300 ease-in-out`}
+            ></div>
+            <div className="relative container">
+                <div className="fixed top-8 right-0 left-0 z-997 px-4 md:px-8 mx-auto max-w-[inherit] ">
                     <Navbar />
                 </div>
                 <HeroSection />
@@ -36,11 +40,6 @@ const Home = () => {
                 >
                     <CardNavlink />
                 </div>
-
-                <div
-                    onClick={closeMenu}
-                    className={`${isOpen == true ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'} absolute inset-0 w-full bg-black/50 transition-all duration-300 ease-in-out`}
-                ></div>
             </div>
             <Footer />
         </div>

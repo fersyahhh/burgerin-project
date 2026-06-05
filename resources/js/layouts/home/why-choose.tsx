@@ -3,7 +3,7 @@ import CardWhyChoose from '@/components/card-why-choose';
 
 const WhyChooseSection = () => {
     return (
-        <div className="mt-20 h-auto w-full rounded-4xl bg-fuchsia-50 px-4 py-15 font-hanken">
+        <div className="mt-20 h-auto w-full rounded-4xl bg-tertiary/10 px-4 py-15 font-hanken">
             <header className="text-center">
                 <div className='md:inline-flex items-center justify-center gap-3'>
                     <h1 className="text-4xl font-bold text-dark">
