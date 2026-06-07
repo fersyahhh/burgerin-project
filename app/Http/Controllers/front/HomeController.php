@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\front;
 
+use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Menu;
 use Inertia\Inertia;
 
-class MenuController extends Controller
+class HomeController extends Controller
 {
     public function index()
     {
