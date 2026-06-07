@@ -1,5 +1,5 @@
 export interface CategoryType {
-    id: number,
+    id?: number,
     name: string,
-    slug: string,
+    slug?: string,
 }

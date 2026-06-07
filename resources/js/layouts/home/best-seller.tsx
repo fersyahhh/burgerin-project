@@ -1,9 +1,8 @@
-import { usePage } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import CardBestSeller from '@/components/card-best-seller';
 import type { MenuType } from '@/types/menu';
 
 interface PageProps {
-    menus: MenuType[];
     bestSellers: MenuType[];
     [key: string]: any;
 }
@@ -15,10 +14,10 @@ const BestSellerSection = () => {
     return (
         <div className="mt-25 font-hanken">
             <div className="flex items-center justify-between">
-                <h1 className="text-3xl font-bold text-dark">
+                <h1 className="text-3xl md:text-4xl font-bold text-dark">
                     Our Best Sellers
                 </h1>
-                <button className="text-primary">See All Menu</button>
+                <Link href={"/menu"} className="text-primary hover:underline">See All Menu</Link>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10'>
                 {bestSellers.map((menu: MenuType) => (
