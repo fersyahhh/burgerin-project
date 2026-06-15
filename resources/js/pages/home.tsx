@@ -1,5 +1,6 @@
 import { Head } from '@inertiajs/react';
 import CardNavlink from '@/components/card-navlink';
+import DiscontOngkir from '@/components/discont-ongkir';
 import { useMenu } from '@/contexts/menu-context';
 import Footer from '@/layouts/footer';
 import BestSellerSection from '@/layouts/home/best-seller';
@@ -18,12 +19,7 @@ const Home = () => {
             {/* Title Website */}
             <Head title="Burgerin | Laper? Burgerin Aja Yuk" />
 
-            {/* Header Home */}
-            <div className="flex h-10 w-full items-center justify-center bg-primary">
-                <p className="font-hanken text-xs font-bold md:text-sm lg:text-base">
-                    Gratis Ongkir khusus pemesanan di atas Rp 100rb!
-                </p>
-            </div>
+            <DiscontOngkir />
 
             {/* Backdrop */}
             <div

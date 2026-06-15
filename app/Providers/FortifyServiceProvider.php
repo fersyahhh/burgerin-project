@@ -32,6 +32,12 @@ class FortifyServiceProvider extends ServiceProvider
         $this->configureActions();
         $this->configureViews();
         $this->configureRateLimiting();
+
+        Fortify::verifyEmailView(function () {
+            return Inertia::render('auth/login', [
+                'status' => 'Registrasi berhasil! Sebuah link verifikasi telah dikirim ke Gmail Anda. Silakan verifikasi terlebih dahulu sebelum dapat mengakses aplikasi.',
+            ]);
+        });
     }
 
     /**

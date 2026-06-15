@@ -1,5 +1,6 @@
 import { Head } from '@inertiajs/react';
 import CardNavlink from '@/components/card-navlink';
+import DiscontOngkir from '@/components/discont-ongkir';
 import { useMenu } from '@/contexts/menu-context';
 import Footer from '@/layouts/footer';
 import MenuHeader from '@/layouts/menu/menu-header';
@@ -13,6 +14,8 @@ const Menu = () => {
         <div className="relative min-h-screen w-full overflow-x-hidden bg-white">
             {/* Title Website */}
             <Head title="Burgerin | Menu Page" />
+
+            <DiscontOngkir />
 
             {/* Backdrop */}
             <div
