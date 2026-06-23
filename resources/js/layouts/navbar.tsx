@@ -23,7 +23,7 @@ const Navbar = () => {
                 <Link className="transition-all duration-500 ease-in-out hover:text-primary">
                     <ShoppingCart />
                 </Link>
-                {auth == null && (
+                {!auth?.user && (
                     <Link
                         href={'/login'}
                         className="transition-all duration-500 ease-in-out hover:text-primary"
