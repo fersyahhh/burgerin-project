@@ -4,16 +4,17 @@ import type { MenuType } from '@/types/menu';
 
 interface CardBestSellerProps {
     menu: MenuType;
+    addCart: (id: number) => void;
 }
 
-const CardBestSeller = ({ menu }: CardBestSellerProps) => {
+const CardBestSeller = ({ addCart, menu }: CardBestSellerProps) => {
     const menuName = menu.name.split(' ');
     const firstWords = menuName[0];
     const remainingWords = menuName[1];
 
     return (
-        <div className="flex group relative h-full w-full flex-col items-center justify-between overflow-hidden rounded-3xl bg-white pt-6 font-hanken shadow-md shadow-black/10 transition-all duration-500 ease-in-out hover:shadow-lg hover:shadow-black/20">
-            <div className="h-40 w-40 transition-all duration-500 ease-in-out group-hover:scale-105 group-hover:-translate-y-3 overflow-hidden rounded-full p-1 shadow-lg shadow-black/20">
+        <div className="group relative flex h-full w-full flex-col items-center justify-between overflow-hidden rounded-3xl bg-white pt-6 font-hanken shadow-md shadow-black/10 transition-all duration-500 ease-in-out hover:shadow-lg hover:shadow-black/20">
+            <div className="h-40 w-40 overflow-hidden rounded-full p-1 shadow-lg shadow-black/20 transition-all duration-500 ease-in-out group-hover:-translate-y-3 group-hover:scale-105">
                 <img
                     src={bestSellerImage}
                     alt="chicken-burger"
@@ -21,12 +22,14 @@ const CardBestSeller = ({ menu }: CardBestSellerProps) => {
                 />
             </div>
 
-            <div className="absolute top-50 transition-all duration-500 ease-in-out group-hover:rotate-0 left-6 shadow-lg shadow-black/20 -rotate-18 rounded-lg bg-primary px-3 py-1">
-                <p className="text-neutral font-bold text-sm">Rp. {menu.price}k</p>
+            <div className="absolute top-50 left-6 -rotate-18 rounded-lg bg-primary px-3 py-1 shadow-lg shadow-black/20 transition-all duration-500 ease-in-out group-hover:rotate-0">
+                <p className="text-sm font-bold text-neutral">
+                    Rp. {menu.price}k
+                </p>
             </div>
 
             <div className="mt-8 px-5 text-center">
-                <h1 className="flex group-hover:text-primary transition-all duration-500 ease-in-out flex-col text-dark">
+                <h1 className="flex flex-col text-dark transition-all duration-500 ease-in-out group-hover:text-primary">
                     <span className="text-3xl font-bold">{firstWords}</span>
                     <span className="font-playfair text-2xl italic">
                         {remainingWords}
@@ -37,7 +40,10 @@ const CardBestSeller = ({ menu }: CardBestSellerProps) => {
                 </p>
             </div>
             <div className="px-5 pb-8">
-                <button className="mt-10 transition-all duration-500 ease-in-out hover:bg-primary flex w-full items-center justify-center gap-2 rounded-full bg-dark p-3.5 text-neutral">
+                <button
+                    onClick={() => addCart(menu.id)}
+                    className="mt-10 flex w-full items-center justify-center gap-2 rounded-full bg-dark p-3.5 text-neutral transition-all duration-500 ease-in-out hover:bg-primary"
+                >
                     <Plus />
                 </button>
             </div>

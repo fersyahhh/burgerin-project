@@ -11,4 +11,5 @@ export interface MenuType {
     is_available: boolean;
     is_best_seller: boolean;
     category?: CategoryType;
+    addCart: (id: number) => void;
 }

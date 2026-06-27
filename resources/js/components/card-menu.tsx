@@ -2,7 +2,7 @@ import { Plus } from 'lucide-react';
 import bestSellerImage from '@/assets/chicken-burger.jpg';
 import type { MenuType } from '@/types/menu';
 
-const CardMenu = ({ name, price, description }: MenuType) => {
+const CardMenu = ({ addCart, id, name, price, description }: MenuType) => {
     const menuName = name.split(' ');
     const firstWords = menuName[0];
     const remainingWords = menuName[1];
@@ -33,7 +33,10 @@ const CardMenu = ({ name, price, description }: MenuType) => {
                 </p>
             </div>
             <div className="px-5 pb-8">
-                <button className="mt-10 flex w-full items-center justify-center gap-2 rounded-full bg-dark p-3.5 text-neutral transition-all duration-500 ease-in-out hover:bg-primary">
+                <button
+                    onClick={() => addCart(id)}
+                    className="mt-10 flex w-full items-center justify-center gap-2 rounded-full bg-dark p-3.5 text-neutral transition-all duration-500 ease-in-out hover:bg-primary"
+                >
                     <Plus />
                 </button>
             </div>

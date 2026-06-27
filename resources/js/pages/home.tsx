@@ -1,7 +1,5 @@
 import { Head } from '@inertiajs/react';
-import CardNavlink from '@/components/card-navlink';
 import DiscontOngkir from '@/components/discont-ongkir';
-import { useMenu } from '@/contexts/menu-context';
 import Footer from '@/layouts/footer';
 import BestSellerSection from '@/layouts/home/best-seller';
 import HeroSection from '@/layouts/home/hero';
@@ -12,20 +10,12 @@ import WhyChooseSection from '@/layouts/home/why-choose';
 import Navbar from '@/layouts/navbar';
 
 const Home = () => {
-    const { isOpen, closeMenu } = useMenu();
-
     return (
         <div className="relative min-h-screen w-full overflow-x-hidden bg-white">
             {/* Title Website */}
             <Head title="Burgerin | Laper? Burgerin Aja Yuk" />
 
             <DiscontOngkir />
-
-            {/* Backdrop */}
-            <div
-                onClick={closeMenu}
-                className={`${isOpen == true ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'} absolute inset-0 z-998 w-full bg-black/50 transition-all duration-300 ease-in-out`}
-            ></div>
 
             {/* Container Main */}
             <div className="relative container">
@@ -41,13 +31,6 @@ const Home = () => {
                 <HowToOrderSection />
                 <TestimonialSection />
                 <NewsLetterSection />
-
-                {/* Card NavLink On Mobile/Tablet Device */}
-                <div
-                    className={`${isOpen == true ? 'right-0' : '-right-full'} fixed top-0 z-999 w-[80%] transition-all duration-300 ease-in-out md:w-1/2`}
-                >
-                    <CardNavlink />
-                </div>
             </div>
 
             {/* Footer */}

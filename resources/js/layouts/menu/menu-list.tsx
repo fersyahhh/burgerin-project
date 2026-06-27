@@ -2,6 +2,8 @@ import { usePage } from '@inertiajs/react';
 import { useState } from 'react';
 import CardCategory from '@/components/card-category';
 import CardMenu from '@/components/card-menu';
+import { useCart } from '@/contexts/cart-context';
+import { useAddToCart } from '@/hooks/use-add-to-cart';
 import type { CategoryType } from '@/types/category';
 import type { MenuType } from '@/types/menu';
 
@@ -14,9 +16,13 @@ interface PageProps {
 const MenuListSection = () => {
     const { props } = usePage();
     const { menus, categories } = props as unknown as PageProps;
+    const { dataMenu } = useCart();
     const [filterByCategory, setFilterByCategory] = useState<number | null>(
         null,
     );
+    const { handleAddToCart } = useAddToCart(menus);
+
+    console.log(dataMenu);
 
     const filterMenu = filterByCategory
         ? menus.filter((item) => item.category?.id === filterByCategory)
@@ -46,7 +52,11 @@ const MenuListSection = () => {
             {/* Menu */}
             <div className="mt-15 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {filterMenu.map((item) => (
-                    <CardMenu key={item.id} {...item} />
+                    <CardMenu
+                        key={item.id}
+                        {...item}
+                        addCart={handleAddToCart}
+                    />
                 ))}
             </div>
         </div>

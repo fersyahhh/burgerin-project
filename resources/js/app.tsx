@@ -6,6 +6,8 @@ import AppLayout from '@/layouts/app-layout';
 import AuthLayout from '@/layouts/auth-layout';
 import SettingsLayout from '@/layouts/settings/layout';
 import { MenuProvider } from './contexts/menu-context';
+import MainLayout from './layouts/main';
+import { CartProvider } from './contexts/cart-context';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -14,15 +16,16 @@ createInertiaApp({
     layout: (name) => {
         switch (true) {
             case name === 'home':
-                return null;
             case name === 'menu':
-                return null;
             case name === 'checkout':
-                return null;
+                return MainLayout;
+
             case name.startsWith('auth/'):
                 return AuthLayout;
+
             case name.startsWith('settings/'):
                 return [AppLayout, SettingsLayout];
+
             default:
                 return AppLayout;
         }
@@ -31,10 +34,12 @@ createInertiaApp({
     withApp(app) {
         return (
             <MenuProvider>
-                <TooltipProvider delayDuration={0}>
-                    {app}
-                    <Toaster />
-                </TooltipProvider>
+                <CartProvider>
+                    <TooltipProvider delayDuration={0}>
+                        {app}
+                        <Toaster />
+                    </TooltipProvider>
+                </CartProvider>
             </MenuProvider>
         );
     },
