@@ -11,4 +11,7 @@ export type CartContextType = {
     dataMenu: CartItem[];
     setDataMenu: React.Dispatch<React.SetStateAction<CartItem[]>>;
     totalMenu: number;
+    isCart: boolean;
+    closeCart: () => void;
+    openCart: () => void;
 };

@@ -7,7 +7,7 @@ import { useMenu } from '@/contexts/menu-context';
 const Navbar = () => {
     const { toggleMenu } = useMenu();
     const { auth } = usePage().props as any;
-    const { totalMenu } = useCart();
+    const { totalMenu, openCart } = useCart();
 
     console.log(auth);
 
@@ -22,7 +22,7 @@ const Navbar = () => {
                 <NavLink />
             </div>
             <div className="flex items-center justify-center space-x-3 lg:space-x-4">
-                <Link className="relative transition-all duration-500 ease-in-out hover:text-primary">
+                <Link onClick={openCart} className="relative">
                     {totalMenu !== 0 && (
                         <div className="absolute -top-2.5 -right-2.5 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs font-bold">
                             {totalMenu}
@@ -31,14 +31,11 @@ const Navbar = () => {
                     <ShoppingCart />
                 </Link>
                 {!auth?.user && (
-                    <Link
-                        href={'/login'}
-                        className="transition-all duration-500 ease-in-out hover:text-primary"
-                    >
+                    <Link href={'/login'}>
                         <User />
                     </Link>
                 )}
-                <Link className="transition-all duration-500 ease-in-out hover:text-primary">
+                <Link>
                     <Search />
                 </Link>
                 <button

@@ -8,12 +8,25 @@ export const CartContext = createContext<CartContextType>(
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     const [dataMenu, setDataMenu] = useState<CartItem[]>([]);
+    const [isCart, setIsCart] = useState<boolean>(false);
+
+    const closeCart = () => setIsCart(false);
+    const openCart = () => setIsCart(true);
     const totalMenu = dataMenu.length;
 
-    console.log(totalMenu)
+    console.log(totalMenu);
 
     return (
-        <CartContext.Provider value={{ dataMenu, setDataMenu, totalMenu }}>
+        <CartContext.Provider
+            value={{
+                dataMenu,
+                setDataMenu,
+                totalMenu,
+                isCart,
+                closeCart,
+                openCart,
+            }}
+        >
             {children}
         </CartContext.Provider>
     );

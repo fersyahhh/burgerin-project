@@ -1,3 +1,4 @@
+import { Link } from '@inertiajs/react';
 import heroImage from '@/assets/hero-img.jpg';
 
 const HeroSection = () => {
@@ -24,9 +25,9 @@ const HeroSection = () => {
                     <button className="w-full rounded-full bg-primary py-3 text-center font-hanken text-lg font-bold transition-all duration-500 hover:-translate-y-1 hover:bg-neutral hover:text-dark md:w-1/2">
                         Pesan Sekarang
                     </button>
-                    <button className="w-full rounded-full border-2 border-white py-3 text-center font-hanken text-lg font-bold transition-all duration-500 ease-in-out hover:-translate-y-1 hover:bg-neutral hover:text-dark md:w-1/2">
+                    <Link href={'/menu'} className="w-full rounded-full border-2 border-white py-3 text-center font-hanken text-lg font-bold transition-all duration-500 ease-in-out hover:-translate-y-1 hover:bg-neutral hover:text-dark md:w-1/2">
                         Lihat Menu
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>
